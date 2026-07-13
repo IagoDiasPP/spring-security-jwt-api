@@ -1,0 +1,25 @@
+server:
+  error:
+    include-stacktrace: on_param
+
+spring:
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+logging:
+  level:
+    org:
+      hibernate:
+        sql: DEBUG
+        type: trace
+
+jwt:
+  expiration: ${JWT_EXPIRATION:90000}
+  key: ${JWT_KEY}
